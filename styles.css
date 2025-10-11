@@ -154,4 +154,18 @@ ol { padding-left: 22px; }
   .site-nav, .site-footer { display: none; }
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust the space between the image and text */
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  flex-shrink: 0; /* Prevents the image from shrinking on smaller screens */
+}
+
 
