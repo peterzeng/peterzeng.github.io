@@ -147,6 +147,15 @@ ol { padding-left: 22px; }
 /* Better spacing for touch */
 @media (max-width: 520px) {
   .update-date { min-width: 92px; }
+  
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .header-content {
+    gap: 16px;
+  }
 }
 
 /* Print: simplify */
@@ -162,10 +171,13 @@ ol { padding-left: 22px; }
 
 .profile-pic {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   flex-shrink: 0; /* Prevents the image from shrinking on smaller screens */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  border: 2px solid var(--accent-color, black); /* Optional: add a subtle border */
 }
 
 
