@@ -1,0 +1,248 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%% PACKAGES
+
+\nofiles
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[empty]{fullpage}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{colortbl}
+\usepackage{enumitem}
+
+%% MARGINS %%
+
+\usepackage{graphicx}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+\geometry{
+    letterpaper,
+    left=12mm,
+    top=12mm, % Increased slightly for better header spacing
+    right=12mm,
+    bottom=12mm,
+}
+
+\raggedright
+
+%% CUSTOM COMMANDS %%
+
+% Color on lines and name
+\definecolor{burgundy}{rgb}{0,0,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{light-grey}{rgb}{0.4,0.4,0.4}
+
+\hypersetup{colorlinks=true,urlcolor=darkblue}
+
+% Command for displaying organizations (schools & employers)
+\newcommand{\organization}[4]{
+    \vspace{-1.0pt}
+    \textbf{#1} \hfill{\emph{#2}} \\
+    \emph{#3} \hfill{#4} \\
+    \vspace{1.5pt} % Reduced from 3pt
+}
+
+% Command for the beginning of bullets
+\newcommand{\bulletsBegin}{
+    \vspace{1pt}
+    \begin{minipage}{17.6cm} 
+    \begin{itemize}[leftmargin=0.6cm]
+    \setlength\itemsep{1pt} % Increased spacing slightly for readability
+}
+
+% Command for the end of bullets
+\newcommand{\bulletsEnd}{
+    \end{itemize}\vspace{1pt}
+    \end{minipage}
+}
+
+% Command for email
+\newcommand{\myEmail}[1]{
+    \href{mailto:#1}{\faEnvelope \ #1}
+    \ |
+}
+
+% Command for github profile
+\newcommand{\myGitHub}[1]{
+    \href{https://github.com/#1/}{\faGithub \ #1}
+    \ 
+}
+
+% Command for displaying name and Contact info
+\newcommand{\myName}[5]{
+    \begin{center}
+        {\huge{\color{burgundy}\scshape{#1}}} \\
+        \vspace{5pt}
+        {\large \scshape #5} \\ % This is the new Title/Location line
+        \vspace{5pt}
+        \myEmail{#4}
+        \href{https://peterzeng.github.io/}{\faLink \ peterzeng.github.io} \ | \ 
+        \myGitHub{#3}
+    \end{center}
+    \vspace{-4pt}
+}
+
+% Title formatting for each section
+\titleformat{\section}{
+    \vspace{-10pt}\color{burgundy}\scshape\raggedright\large
+    }{}{0em}{}[\titlerule]
+
+%% DOCUMENT 
+
+\begin{document}
+
+    %% HEADING --------------------
+    \myName{Peter Zeng}{}{peterzeng}{peterateast@gmail.com}
+    {PhD Candidate in Computer Science $\sbullet[.75]$ Stony Brook, NY} 
+
+    %% EDUCATION --------------------
+    \section{Education}
+    \organization{Stony Brook University}{August 2023 - Expected May 2027}
+        {Ph.D. in Computer Science}{Advisor: \href{https://owenrambow.com/}{Owen Rambow}} 
+
+    \organization{Stony Brook University}{August 2017 - May 2022}
+        {BS/MS in Computer Science}{}
+
+    %% RESEARCH INTERESTS --------------------
+    \section{Research Interests}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.6cm]
+        % \setlength\itemsep{2pt}
+        \item \textbf{Machine Theory of Mind \& Cognitively Informed AI:} Assessing the ability of Large Language Models (LLMs) and Vision-Language Models (LVLMs) to model belief states, track recursive mental states, and perform human-like cognitive reasoning.
+        \item \textbf{Multimodal Grounding \& Human-AI Communication:} Investigating how LVLMs ground language to vision and coordinate with human partners, with a focus on divergences between human pragmatic inference and model behavior in interactive settings.
+        \item \textbf{AI Interpretability \& Trustworthiness:} Developing hybrid architectures that combine the performance of deep neural networks with the transparency of feature-based models (e.g., residualized similarity).
+    \end{itemize}
+    % \vspace{8pt}
+
+    %% RESEARCH EXPERIENCE (PUBLICATIONS) --------------------
+    \section{Selected Publications \& Manuscripts}
+
+    \organization{\href{https://arxiv.org/pdf/2606.17372}{Implicit vs. Explicit Prompting Strategies for LVLMs in Referential Communication}}{Spring 2026}
+    {\textbf{*Peter Zeng}, Amie J. Paige, Weiling Li, Susan E. Brennan, Owen Rambow, Cameron R. Jones. \textit{Under Review}.}{}
+    \bulletsBegin
+        \item \textbf{Problem:} Two prior studies reached contradictory conclusions about whether LVLMs can coordinate efficient referring expressions, leaving it unclear whether task design or prompting approach was responsible.
+        \item \textbf{Method:} Controlled for task differences between the conflicting studies while directly comparing explicit versus implicit prompting strategies across models, isolating prompting as the key variable.
+        \item \textbf{Outcome:} Showed that LVLMs succeed at communicative efficiency when explicitly instructed to do so, but fail to infer this need from implicit prompts — unlike humans, who derive communicative intent from context alone — revealing a fundamental gap in pragmatic inference.
+    \bulletsEnd
+
+    \organization{\href{https://arxiv.org/abs/2601.19792v2}{LVLMs and Humans Ground Differently in Referential Communication}}{Fall 2025}
+    {\textbf{*Peter Zeng}, Weiling Li, Amie J. Paige, Zhengxiang Wang, Panagiotis Kaliosis, \\ Dimitris Samaras, Gregory Zelinsky, Susan E. Brennan, and Owen Rambow. \textit{ACL 2026 (Main)}.}{}
+    \bulletsBegin
+        \item \textbf{Problem:} LVLMs appear competent in multimodal reasoning, but it's unclear whether they ground the same way humans do during interactive communication.
+        \item \textbf{Method:} Designed and implemented a referential communication task comparing human–human and human–LVLM interactions. Analyzed linguistic strategies, visual attention patterns, and error profiles across conditions to isolate model–human divergences.
+        \item \textbf{Outcome:} Demonstrated that LVLMs systematically rely on surface‑level visual heuristics and fail to adapt grounding strategies to partner feedback, unlike humans who use pragmatic inference and incremental clarification. Findings reveal a fundamental mismatch between human and model grounding processes and establish a new evaluation paradigm for interactive multimodal communication.
+    \bulletsEnd
+    
+    % PAPER 1
+    \organization{\href{https://aclanthology.org/2025.findings-emnlp.856/}{Residualized Similarity for Interpretability in Authorship Verification}}{Spring 2025}
+    {\textbf{*Peter Zeng}, Pegah Alipoormolabashi, Jihu Mun, Gourab Dey, Nikita Soni, \\Niranjan Balasubramanian, Owen Rambow, H. Schwartz. \textit{EMNLP 2025 (Findings)}.}{}
+    \bulletsBegin
+        \item \textbf{Problem:} Standard cosine-similarity models in authorship attribution often sacrifice interpretability for performance.
+        \item \textbf{Method:} Developed a novel neural framework that predicts the "residual" (error) of an interpretable baseline, allowing the model to capture complex non-linearities while retaining feature-level explainability.
+        \item \textbf{Outcome:} Improved accuracy by $\sim$20-30\% over baseline interpretable systems, establishing a new SOTA for faithful explainability in authorship tasks.
+    \bulletsEnd
+
+    % PAPER 2
+    \organization{\href{https://arxiv.org/abs/2406.12131}{Gram2Vec: An Interpretable Document Vectorizer}}{}
+        {\textbf{*Peter Zeng}, Hannah Stortz, Eric Sclafani, Alina Shabaeva,\\ Maria Elizabeth Garza, Daniel Greeson, Owen Rambow. \textit{Under Review}.}{}
+        \bulletsBegin
+            \item \textbf{Problem:} Neural text embeddings are often "black boxes," making it difficult to understand the linguistic basis for authorship attribution.
+            \item \textbf{Method:} Created a grammatical style embedding algorithm that extracts normalized relative frequencies of morphosyntactic features into a higher-dimensional space.
+            \item \textbf{Outcome:} Demonstrated that explicit grammatical feature extraction can be successfully applied to two domains: authorship verification and AI detection.
+        \bulletsEnd
+    
+    % PAPER 3
+    \organization{\href{https://arxiv.org/pdf/2502.06922}{Synthetic Audio Helps for Cognitive State Tasks}}{Fall 2024}
+    {Adil Soubki, John Murzaku, \textbf{*Peter Zeng}, Owen Rambow. \textit{NAACL 2025} (Findings).}{}
+    \bulletsBegin
+        \item \textbf{Problem:} Gold-standard audio data for cognitive tasks is scarce, yet text-only models miss prosodic cues.
+        \item \textbf{Method:} Introduced Synthetic Audio Data fine-tuning (SAD), a multimodal training approach using text and zero-shot synthetic audio from off-the-shelf TTS systems.
+        \item \textbf{Outcome:} Proved that synthetic audio acts as an effective regularizer, improving cognitive state modeling performance even when real audio is unavailable.
+    \bulletsEnd
+    
+    % PAPER 4
+    \organization{\href{https://arxiv.org/pdf/2403.02451}{Views Are My Own, But Also Yours: Benchmarking Theory of Mind}}{Fall 2023}
+        {Adil Soubki, John Murzaku, Arash Yousefi Jordehi, \textbf{*Peter Zeng},\\ Magdalena Markowska, Seyed Abolghasem Mirroshandel, Owen Rambow. \textit{ACL 2024} (Findings).}{}
+        \bulletsBegin
+            \item \textbf{Problem:} Existing Theory of Mind benchmarks rely on synthetic scenarios that do not reflect the complexity of natural dialogue.
+            \item \textbf{Method:} Constructed \textit{Common-ToM}, a benchmark derived from naturally occurring dialogs, to test LLM capabilities zero-shot.
+            \item \textbf{Outcome:} Demonstrated that while LLMs retrieve facts well, they struggle to track recursive belief states without explicit belief representations.
+        \bulletsEnd
+        
+    % PAPER 5
+    \organization{\href{https://aclanthology.org/2022.coling-1.66}{Re-Examining FactBank: Predicting the Author's Presentation of Factuality}}{Spring 2022}
+        {John Murzaku, \textbf{*Peter Zeng}, Magdalena Markowska, Owen Rambow. \textit{COLING 2022}.}{}
+        \bulletsBegin
+            \item \textbf{Problem:} Prior research on the canonical FactBank corpus relied on data representation errors, leading to invalid conclusions.
+            \item \textbf{Method:} Systematically identified and corrected representation errors in the corpus to create a reliable ground truth.
+            \item \textbf{Outcome:} Achieved State-of-the-Art results for predicting authorial factuality across four distinct corpora using the corrected data.
+        \bulletsEnd
+
+    %% PROFESSIONAL EXPERIENCE --------------------
+    \section{Professional Experience}
+
+    \organization{Applied Scientist Intern}{June 2026 - September 2026}
+        {\href{https://business.adobe.com/products/experience-platform/adobe-experience-platform.html}{Adobe (AEP Agent Orchestrator)}}{San Jose, CA}
+        \bulletsBegin
+            \item Designing and implementing memory management systems for the Adobe Experience Platform (AEP) Agent Orchestrator, enabling agents to persist, retrieve, and reason over long-horizon context.
+            \item Researching memory architectures (episodic, semantic, and working memory) to improve agent coherence and task continuity across multi-step orchestration workflows.
+            \item Collaborating with cross-functional teams to evaluate memory retrieval strategies and their downstream impact on agent response quality and latency.
+        \bulletsEnd
+
+    \organization{Research Assistant}{June 2025 - Present}
+        {\href{https://www.stonybrook.edu/commcms/bias-nrt/}{BIAS-NRT (NSF Fellow)}}{Stony Brook, NY}
+        % Updated description based on Susan's notes
+        \emph{Detecting and Addressing Bias in Data, Humans, \& Institutions}
+        \bulletsBegin
+            \item Conducting task analyses with stakeholders at an Innocence Organization to define user needs and iteratively design optimal prompts for CoCounsel (a secure LLM) to assist in the intake process.
+            \item Developing multimodal evaluation frameworks to assess how Vision-Language Models (VLMs) describe and match objects compared to human baselines.
+            \item Investigating bias propagation in large-scale datasets used for training generative models.
+        \bulletsEnd
+
+    \organization{Research Assistant}{August 2023 - May 2025}
+        {\href{https://www.iarpa.gov/research-programs/hiatus}{IARPA HIATUS (Stony Brook University)}}{Stony Brook, NY}
+        \bulletsBegin
+            \item Lead researcher on the "Residualized Similarity" project, focusing on attribution in low-resource and obfuscated text domains.
+            \item Managed data pipelines for large-scale authorship corpora, ensuring rigorous train/test separation to prevent data leakage in open-world attribution tasks.
+        \bulletsEnd
+        
+    \organization{Software Engineer}{June 2022 - August 2023}
+        {\href{https://aws.amazon.com/ecs/}{Amazon Web Services (Elastic Container Service)}}{New York, NY}
+        \bulletsBegin
+            \item \textbf{High-Scale Infrastructure:} Maintained core control-plane infrastructure for Amazon ECS, supporting 2 million daily customer deployments across global regions.
+            \item \textbf{Reliability Engineering:} Designed and implemented alarm-based rollback mechanisms, requiring the ingestion and real-time processing of massive-scale telemetry data to ensure service availability.
+            \item \textbf{Production Excellence:} Participated in on-call rotations for a Tier-1 AWS service, resolving critical production incidents affecting enterprise customers.
+        \bulletsEnd
+        
+    %% TECHNICAL SKILLS (NEW) --------------------
+    \section{Technical Skills}
+    \vspace{-2pt}
+    \begin{tabular}{@{}p{5cm}l}
+        \textbf{Languages} & Python, Java \\
+        \textbf{Deep Learning Libraries} & PyTorch, HuggingFace (Transformers, PEFT), W\&B \\
+        \textbf{AI Techniques} & Fine-Tuning, Prompt Engineering, RAG \\
+        \textbf{Infrastructure} & Git, Linux/Unix \\
+        \textbf{Methodologies} & Causal Inference, Human-Subjects Evaluation, Survey Design \\
+    \end{tabular}
+    \vspace{8pt}
+
+    %% ACADEMIC SERVICE & TEACHING (UPDATED) --------------------
+    \section{Academic Service \& Teaching}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.6cm]
+        \setlength\itemsep{2pt}
+        \item \textbf{Reviewer:} ACL Rolling Review (ARR), NeurIPS 2026 Evaluations and Datasets Track
+        \item \textbf{Teaching Assistant (Stony Brook):} CSE 385 Analysis of Algorithms, CSE 160/260 OOP \& Data Structures
+        \item \textbf{Academic Tutor (ASTC):} CSE 101 (Intro to Programming) \& PHY 131/132 (Physics Mechanics) at the \emph{Academic Success and Tutoring Center}, Stony Brook, NY
+        \item \textbf{Instructor:} Taught K-12 introductory programming (Scratch, Python, Java) at \emph{theCoderSchool}, Buffalo, NY
+    \end{itemize}
+
+\end{document}
